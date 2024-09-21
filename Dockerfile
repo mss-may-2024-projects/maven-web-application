@@ -1,5 +1,12 @@
-FROM tomcat:9.0-alpine
-LABEL maintainer="Asim Momin"
-COPY target/maven-web-application.war $CATALINA_HOME/webapps/maven-web-application.war
+FROM amazoncorretto:8-alpine-jdk
+ENV CATALINA_HOME /usr/local/tomcat
+RUN mkdir -p $CATALINA_HOME \
+    && adduser tomcat9 -D -h $CATALINA_HOME -s /bin/sh
+ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.95/bin/apache-tomcat-9.0.95.tar.gz /tmp/tomcat.tar.gz
+RUN cd /tmp \
+	  && tar xvfz /tmp/tomcat.tar.gz \
+    && mv /tmp/apache-tomcat-9.0.95/* $CATALINA_HOME \
+    && rm -rf /tmp/apache-tomcat-9.0.95 /tmp/tomcat.tar.gz
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+USER tomcat9
+CMD ["sh", "$CATALINA_HOME/bin/catalina.sh", "run"]
