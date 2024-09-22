@@ -1,6 +1,6 @@
 #!/bin/bash/
 FROM amazoncorretto:8-alpine-jdk
-ENV CATALINA_HOME /usr/local/tomcat
+ENV CATALINA_HOME=/usr/local/tomcat
 RUN mkdir -p $CATALINA_HOME \
     && adduser tomcat9 -D -h $CATALINA_HOME -s /bin/sh \
     && apk add --no-cache curl wget
