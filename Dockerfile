@@ -1,3 +1,4 @@
+#!/bin/bash/
 FROM amazoncorretto:8-alpine-jdk
 ENV CATALINA_HOME /usr/local/tomcat
 RUN mkdir -p $CATALINA_HOME \
