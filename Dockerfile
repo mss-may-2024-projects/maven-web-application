@@ -6,7 +6,8 @@ ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.95/bin/apache-tomcat-9.0.95.ta
 RUN cd /tmp \
     && tar xvfz /tmp/tomcat.tar.gz \
     && mv /tmp/apache-tomcat-9.0.95/* $CATALINA_HOME \
-    && rm -rf /tmp/apache-tomcat-9.0.95 /tmp/tomcat.tar.gz
+    && rm -rf /tmp/apache-tomcat-9.0.95 /tmp/tomcat.tar.gz \
+    && chown -R tomcat9:tomcat9 $CATALINA_HOME  
 EXPOSE 8080
 USER tomcat9
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
