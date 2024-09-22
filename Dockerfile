@@ -4,9 +4,9 @@ RUN mkdir -p $CATALINA_HOME \
     && adduser tomcat9 -D -h $CATALINA_HOME -s /bin/sh
 ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.95/bin/apache-tomcat-9.0.95.tar.gz /tmp/tomcat.tar.gz
 RUN cd /tmp \
-	  && tar xvfz /tmp/tomcat.tar.gz \
+    && tar xvfz /tmp/tomcat.tar.gz \
     && mv /tmp/apache-tomcat-9.0.95/* $CATALINA_HOME \
     && rm -rf /tmp/apache-tomcat-9.0.95 /tmp/tomcat.tar.gz
 EXPOSE 8080
 USER tomcat9
-CMD ["sh", "$CATALINA_HOME/bin/catalina.sh", "run"]
+CMD ["sh", "/usr/local/tomcat/bin/catalina.sh", "run"]
