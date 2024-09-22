@@ -9,4 +9,4 @@ RUN cd /tmp \
     && rm -rf /tmp/apache-tomcat-9.0.95 /tmp/tomcat.tar.gz
 EXPOSE 8080
 USER tomcat9
-CMD ["sh", "/usr/local/tomcat/bin/catalina.sh", "run"]
+CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
