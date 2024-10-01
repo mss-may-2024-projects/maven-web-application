@@ -1,6 +1,6 @@
 services:
   springboot:
-    image: asimdockerhub/maven-web-application:${web_app}
+    image: asimdockerhub/maven-web-application:web_app
     restart: always
     ports:
     - 9090:8080
