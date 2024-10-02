@@ -1,5 +1,5 @@
 services:
-  springboot:
+  mavenapp:
     image: asimdockerhub/maven-web-application:web_app
     restart: always
     ports:
