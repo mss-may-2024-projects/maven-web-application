@@ -1,6 +1,6 @@
 services:
   mavenapp:
-    image: asimdockerhub/maven-web-application:${web_app}
+    image: asimdockerhub/maven-web-app-maven:${web_app}
     restart: always
     ports:
     - 9090:8080
